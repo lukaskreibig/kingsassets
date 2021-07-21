@@ -7,7 +7,7 @@ const getTreasure = (req, res) => {
         .status(500)
         .send(`Dang, we have a problem in the treasure room: ${err}`);
     } else {
-      res.json(results);
+      res.json(results[0]);
     }
   });
 };

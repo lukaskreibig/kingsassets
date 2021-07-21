@@ -2,6 +2,10 @@ body {
   margin: 0px;
 }
 
+* {
+  justify-self: center;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -12,37 +16,39 @@ body {
 .banner {
   grid-column: 1/6;
   grid-row: 1/1;
-  justify-self: center;
   align-self: center;
 }
 
 .title {
   grid-column: 1/6;
   grid-row: 3/4;
-  justify-self: center;
 }
 .intro {
   grid-column: 1/6;
   grid-row: 4/5;
-  justify-self: center;
-}
-
-.tabledescription {
-  grid-column: 1/6;
-  grid-row: 5/6;
-  justify-self: center;
-  align-self: flex-end;
 }
 
 .table {
   grid-column: 1/6;
   grid-row: 6/7;
-  justify-self: center;
   align-self: center;
 }
 
 .edit {
   grid-column: 1/6;
   grid-row: 8/9;
-  justify-self: center;
+}
+
+.tablecontainer {
+  grid-column: 1/6;
+  grid-row: 5/7;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 20vw 20vw 20vw 20vw;
+  grid-template-rows: 5vh 5vh;
+}
+
+.tabledescription {
+  grid-column: 1/5;
+  grid-row: 1/1;
 }
