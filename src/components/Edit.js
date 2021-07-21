@@ -11,15 +11,17 @@ function Edit({ treasure, handleTreasure }) {
     pearls: treasure.pearls,
   });
 
-  const updateAsset = (edited) => {
-    axios({
+  const updateAsset = async (edited) => {
+    await axios({
       method: "put",
       url: "http://localhost:3000/treasure/update",
       data: edited,
     }).then(
       (response) => {
-        console.log(response.statusText);
-        handleTreasure(edited);
+        console.log(response);
+        if (response.statusText === "OK") {
+          handleTreasure(edited);
+        }
       },
       (error) => {
         console.log(error);
@@ -30,17 +32,25 @@ function Edit({ treasure, handleTreasure }) {
   return (
     <div className="container">
       <div className="banner">Kings Asset Management Tool</div>
-      <div className="title">Assets Manager</div>
-      <div className="intro">Editing Text</div>
+      <div className="title">Treasurer Book</div>
+      <div className="intro">
+        <p> The king "found" new loot? Or are times desperate?</p>
+        <p>
+          Here you have to update the treasures. They will be stored
+          permanently! But beware, you'll better be thorough or the king will
+          get very mad...
+        </p>
+      </div>
       <div className="tablecontainer">
-        <div className="goldtitle">Gold</div>
-        <div className="diamondtitle">Diamonds</div>
-        <div className="salttitle">Salt</div>
-        <div className="pearltitle">Pearls</div>
+        <div className="assets">Gold</div>
+        <div className="assets">Diamonds</div>
+        <div className="assets">Salt</div>
+        <div className="assets">Pearls</div>
         <form className="form">
           <input
             type="number"
             placeholder={treasure.gold}
+            className="assetsnumedit"
             onChange={(e) => setEdited({ ...edited, gold: e.target.value })}
           />
         </form>
@@ -48,6 +58,7 @@ function Edit({ treasure, handleTreasure }) {
           <input
             type="number"
             placeholder={treasure.diamonds}
+            className="assetsnumedit"
             onChange={(e) => setEdited({ ...edited, diamonds: e.target.value })}
           />
         </form>
@@ -55,6 +66,7 @@ function Edit({ treasure, handleTreasure }) {
           <input
             type="number"
             placeholder={treasure.salt}
+            className="assetsnumedit"
             onChange={(e) => setEdited({ ...edited, salt: e.target.value })}
           />
         </form>
@@ -62,16 +74,21 @@ function Edit({ treasure, handleTreasure }) {
           <input
             type="number"
             placeholder={treasure.pearls}
+            className="assetsnumedit"
             onChange={(e) => setEdited({ ...edited, pearls: e.target.value })}
           />
         </form>
-        <button className="btn" onClick={() => updateAsset(edited)}>
-          <span>Submit Changes</span>
+      </div>
+
+      <button className="btn" id="submit" onClick={() => updateAsset(edited)}>
+        <span>Submit Changes</span>
+      </button>
+
+      <Link to="/" id="back">
+        <button className="btn">
+          <span>Back to Main</span>
         </button>
-      </div>
-      <div className="edit">
-        <Link to="/">Finished Editing</Link>
-      </div>
+      </Link>
     </div>
   );
 }

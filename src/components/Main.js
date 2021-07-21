@@ -6,21 +6,30 @@ function Main({ treasure }) {
     <div>
       <div className="container">
         <div className="banner">Kings Asset Management Tool</div>
-        <div className="title">Assets Manager</div>
-        <div className="intro">Intro Text</div>
+        <div className="title">Kingdom Treasure Overview</div>
+        <div className="intro">
+          Welcome my Lord!
+          <p>
+            You must be the Kings new treasurer? I hope your ready for this job,
+            the last one got beheaded quickly. This is the overview over the
+            King treasures!
+          </p>
+        </div>
         <div className="tablecontainer">
-          <div className="goldtitle">Gold</div>
-          <div className="diamondtitle">Diamonds</div>
-          <div className="salttitle">Salt</div>
-          <div className="pearltitle">Pearls</div>
-          <div className="gold">{treasure.gold}</div>
-          <div className="diamonds">{treasure.diamonds}</div>
-          <div className="salt">{treasure.salt}</div>
-          <div className="pearls">{treasure.pearls}</div>
+          <div className="assets">Gold</div>
+          <div className="assets">Diamonds</div>
+          <div className="assets">Salt</div>
+          <div className="assets">Pearls</div>
+          <div className="assetsnum">{treasure.gold}</div>
+          <div className="assetsnum">{treasure.diamonds}</div>
+          <div className="assetsnum">{treasure.salt}</div>
+          <div className="assetsnum">{treasure.pearls}</div>
         </div>
-        <div className="edit">
-          <Link to="/edit">Edit Table</Link>
-        </div>
+        <Link to="/edit" id="submit">
+          <button className="btn">
+            <span>Change the Books</span>
+          </button>
+        </Link>
       </div>
     </div>
   );
