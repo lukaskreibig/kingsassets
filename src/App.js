@@ -2,8 +2,8 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
-import Edit from "./Edit";
-import Main from "./Main";
+import Edit from "./components/Edit";
+import Main from "./components/Main";
 
 function App() {
   const [treasure, setTreasure] = useState([]);
