@@ -1,7 +1,7 @@
-const Leaderboard = require("../models/treasure-models");
+const Assets = require("../models/treasure-models");
 
 const getTreasure = (req, res) => {
-  Leaderboard.findTreasure((err, results) => {
+  Assets.findTreasure((err, results) => {
     if (err) {
       res
         .status(500)
@@ -12,4 +12,16 @@ const getTreasure = (req, res) => {
   });
 };
 
-module.exports = { getTreasure };
+const setTreasure = (req, res) => {
+  Assets.updateTreasure(req.body)
+    .then((results) => {
+      if (results) res.json(results);
+      else res.status(404).send("Not found my Lord");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send(`Whoops, an error my Lord: ${err}`);
+    });
+};
+
+module.exports = { getTreasure, setTreasure };

@@ -1,11 +1,17 @@
 const connection = require("../db/config");
 
-const Leaderboard = {};
+const Assets = {};
 
-Leaderboard.findTreasure = (callback) => {
+const db = connection.promise();
+
+Assets.findTreasure = (callback) => {
   connection.query("SELECT * FROM assets", (err, results, fields) => {
     callback(err, results, fields);
   });
 };
 
-module.exports = Leaderboard;
+Assets.updateTreasure = (body) => {
+  return db.query("UPDATE assets SET ?", [body]).then(([results]) => results);
+};
+
+module.exports = Assets;
