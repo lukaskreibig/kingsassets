@@ -16,7 +16,7 @@ connection.connect((err) => {
 });
 
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 const port = 3000;
 
