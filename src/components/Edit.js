@@ -3,32 +3,30 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-function Edit() {
+function Edit({ treasure, handleTreasure }) {
   const [edited, setEdited] = useState({
-    salt: "10",
-    gold: "20",
-    diamonds: "40",
-    pearls: "20",
+    salt: treasure.salt,
+    gold: treasure.gold,
+    diamonds: treasure.diamonds,
+    pearls: treasure.pearls,
   });
 
-  //   const updateAsset = () => {
-  //     axios
-  //       .put("http://localhost:3000/treasure/update/", {
-  //         asset: value,
-  //       })
-  //       .then((res) => {
-  //         console.log(res);
-  //         // setRes("Successfully updated");
-  //         // setErr("");
-  //       })
-  //       .catch((err) => {
-  //         if (err.response) {
-  //           console.log(err);
-  //           // setErr(err.response.data);
-  //           // setRes("");
-  //         }
-  //       });
-  //   };
+  const updateAsset = (edited) => {
+    axios({
+      method: "put",
+      url: "http://localhost:3000/treasure/update",
+      data: edited,
+    }).then(
+      (response) => {
+        console.log(response.statusText);
+        handleTreasure(edited);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
   return (
     <div className="container">
       <div className="banner">Kings Asset Management Tool</div>
@@ -42,28 +40,32 @@ function Edit() {
         <form className="form">
           <input
             type="number"
+            placeholder={treasure.gold}
             onChange={(e) => setEdited({ ...edited, gold: e.target.value })}
           />
         </form>
         <form className="form">
           <input
             type="number"
+            placeholder={treasure.diamonds}
             onChange={(e) => setEdited({ ...edited, diamonds: e.target.value })}
           />
         </form>
         <form className="form">
           <input
             type="number"
+            placeholder={treasure.salt}
             onChange={(e) => setEdited({ ...edited, salt: e.target.value })}
           />
         </form>
         <form className="form">
           <input
             type="number"
+            placeholder={treasure.pearls}
             onChange={(e) => setEdited({ ...edited, pearls: e.target.value })}
           />
         </form>
-        <button className="btn">
+        <button className="btn" onClick={() => updateAsset(edited)}>
           <span>Submit Changes</span>
         </button>
       </div>

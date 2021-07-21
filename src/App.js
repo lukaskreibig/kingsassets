@@ -7,6 +7,7 @@ import Main from "./components/Main";
 
 function App() {
   const [treasure, setTreasure] = useState([]);
+
   useEffect(() => {
     const fetchTreasure = async () => {
       const res = await axios.get(`http://localhost:3000/treasure`);
@@ -15,12 +16,22 @@ function App() {
     fetchTreasure();
   }, []);
 
+  const handleTreasure = (treasureUpdate) => {
+    setTreasure(treasureUpdate);
+  };
+
   console.log(treasure);
 
   return (
     <>
       <Switch>
-        <Route exact path="/edit" component={Edit}></Route>
+        <Route
+          exact
+          path="/edit"
+          component={() => (
+            <Edit treasure={treasure} handleTreasure={handleTreasure} />
+          )}
+        ></Route>
         <Route
           exact
           path="/"
