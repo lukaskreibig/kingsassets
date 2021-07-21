@@ -34,7 +34,7 @@ function Edit({ treasure, handleTreasure }) {
       <div className="banner">Kings Asset Management Tool</div>
       <div className="title">Treasurer Book</div>
       <div className="intro">
-        <p> The king "found" new loot? Or are times desperate?</p>
+        <p> The king "found" new loot? Or are this desperate times?</p>
         <p>
           Here you have to update the treasures. They will be stored
           permanently! But beware, you'll better be thorough or the king will
@@ -80,7 +80,11 @@ function Edit({ treasure, handleTreasure }) {
         </form>
       </div>
 
-      <button className="btn" id="submit" onClick={() => updateAsset(edited)}>
+      <button
+        className="btn green"
+        id="submit"
+        onClick={() => updateAsset(edited)}
+      >
         <span>Submit Changes</span>
       </button>
 

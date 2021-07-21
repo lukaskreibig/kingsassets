@@ -11,8 +11,8 @@ function Main({ treasure }) {
           Welcome my Lord!
           <p>
             You must be the Kings new treasurer? I hope your ready for this job,
-            the last one got beheaded quickly. This is the overview over the
-            King treasures!
+            the last one got beheaded quickly. Here is the overview over the
+            Kings treasure!
           </p>
         </div>
         <div className="tablecontainer">
