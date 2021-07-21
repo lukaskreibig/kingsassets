@@ -16,7 +16,7 @@ function Main({ treasure }) {
           <div className="gold">{treasure.gold}</div>
           <div className="diamonds">{treasure.diamonds}</div>
           <div className="salt">{treasure.salt}</div>
-          <div className="pearls">{treasure.perls}</div>
+          <div className="pearls">{treasure.pearls}</div>
         </div>
         <div className="edit">
           <Link to="/edit">Edit Table</Link>

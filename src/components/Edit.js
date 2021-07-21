@@ -1,8 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 
 function Edit() {
+  const [edited, setEdited] = useState({
+    salt: "10",
+    gold: "20",
+    diamonds: "40",
+    pearls: "20",
+  });
+
   //   const updateAsset = () => {
   //     axios
   //       .put("http://localhost:3000/treasure/update/", {
@@ -32,21 +40,32 @@ function Edit() {
         <div className="salttitle">Salt</div>
         <div className="pearltitle">Pearls</div>
         <form className="form">
-          <input type="number" />
+          <input
+            type="number"
+            onChange={(e) => setEdited({ ...edited, gold: e.target.value })}
+          />
         </form>
         <form className="form">
-          <input type="number" />
+          <input
+            type="number"
+            onChange={(e) => setEdited({ ...edited, diamonds: e.target.value })}
+          />
         </form>
         <form className="form">
-          <input type="number" />
+          <input
+            type="number"
+            onChange={(e) => setEdited({ ...edited, salt: e.target.value })}
+          />
         </form>
         <form className="form">
-          <input type="number" />
+          <input
+            type="number"
+            onChange={(e) => setEdited({ ...edited, pearls: e.target.value })}
+          />
         </form>
-        <div className="goldupdate">Update</div>
-        <div className="diamondsupdate">Update</div>
-        <div className="saltupdate">Update</div>
-        <div className="pearlsupdate">Update</div>
+        <button className="btn">
+          <span>Submit Changes</span>
+        </button>
       </div>
       <div className="edit">
         <Link to="/">Finished Editing</Link>

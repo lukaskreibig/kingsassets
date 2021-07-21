@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300&display=swap");
+
 body {
   margin: 0px;
 }
@@ -5,13 +7,15 @@ body {
 * {
   justify-self: center;
   align-self: center;
+  font-family: lato;
+  font-weight: 200px;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: repeat(10, 10vh);
-  background-color: azure;
+  background-color: #d2e1f0;
 }
 
 .banner {
@@ -61,6 +65,7 @@ input {
   height: 30px;
   font-size: 18px;
   padding: 12px 20px;
+  border: 1px solid #91c9ff;
 }
 
 input::-webkit-outer-spin-button,
@@ -70,4 +75,26 @@ input::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.btn {
+  grid-column: 1/5;
+  grid-row: 4/4;
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91c9ff;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: #e4dbcd;
+}
+
+.btn span {
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: 100;
 }
