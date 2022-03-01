@@ -1,6 +1,6 @@
 # kingsassets
 
-Kings Asset Management Tool // Checkpoint 4 Wild Code School
+Kings Asset Management Tool
 
 Welcome my Lord!
 
