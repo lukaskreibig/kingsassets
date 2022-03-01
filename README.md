@@ -2,7 +2,7 @@
 
 ### About the project
 
-This was the final test of my 5 months full-time bootcamp experience at Wild Code School in July 2021. We had one day to build a fully working Full-Stack App with working Frontend and an API using Javascript, Node and Express, MySQL. I built a "treasurer" App for an imaginary King, to keep track of his assets.
+This was the final test of my 5 months full-time bootcamp experience at Wild Code School in July 2021. I had one day to build a fully working Full-Stack App with working Frontend and an API using Javascript, Node and Express, MySQL. I built a "treasurer" App for an imaginary King, to keep track of his assets.
 
 ---
 
